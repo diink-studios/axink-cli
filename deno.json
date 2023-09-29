@@ -1,0 +1,52 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.174.0/",
+    "/": "./",
+    "./": "./"
+  },
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": [
+      "deno.ns",
+      "deno.window",
+      "dom",
+      "dom.asynciterable"
+    ]
+  },
+  "tasks": {
+    "dev": "deno run -A --allow-net --watch src/index.ts",
+    "build": "deno run --allow-run --allow-read --allow-env --allow-net --allow-write --watch .bundler/bundler.ts"
+  },
+  "lint": {
+    "files": {
+      "include": [
+        "src/"
+      ]
+    },
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "include": [
+        "ban-untagged-todo"
+      ],
+      "exclude": [
+        "no-unused-vars"
+      ]
+    }
+  },
+  "fmt": {
+    "files": {
+      "include": [
+        "src/"
+      ]
+    },
+    "options": {
+      "useTabs": false,
+      "lineWidth": 100,
+      "indentWidth": 2,
+      "singleQuote": true,
+      "proseWrap": "preserve"
+    }
+  }
+}
